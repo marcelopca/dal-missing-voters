@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Missing Voters: An Analysis of the Effects on Turnout of the Election Administration Delays in the 2026 Peru First Round Presidential Elections" />
+  <title>Missing Voters &mdash; DAL Brief</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --cardinal: #8C1515;
+      --cardinal-light: #B83A4B;
+      --cardinal-bg: rgba(140,21,21,0.06);
+      --palo-alto: #175E54;
+      --sandstone: #D2C295;
+      --fog: #F4F4F4;
+      --cool-grey: #4D4F53;
+    }
+
+    body {
+      font-family: 'Source Sans Pro', Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.65;
+      color: #2e2d29;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Crimson Text', Georgia, serif;
+    }
+
+    .hero {
+      border-bottom: 1px solid #e0e0e0;
+      position: relative;
+    }
+    .hero-bg {
+      background: linear-gradient(135deg, var(--cardinal) 0%, var(--cardinal-light) 100%);
+      filter: blur(40px);
+      opacity: 0.08;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+
+    .publication-title {
+      font-family: 'Crimson Text', Georgia, serif;
+      font-weight: 700;
+      color: #2e2d29;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, var(--cardinal), var(--cardinal-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+    .publication-authors {
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    .publication-authors a {
+      color: var(--cardinal) !important;
+    }
+    .publication-authors a:hover {
+      text-decoration: underline;
+    }
+
+    .link-block a {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    .shaded-panel {
+      background: var(--fog);
+      border-radius: 10px;
+      margin: 0 auto;
+      width: 90%;
+      padding: 25px 35px;
+    }
+
+    .key-finding {
+      background: var(--cardinal-bg);
+      border-left: 4px solid var(--cardinal);
+      border-radius: 0 10px 10px 0;
+      padding: 20px 30px;
+      margin: 1.5em auto;
+      max-width: 90%;
+    }
+    .key-finding p {
+      margin: 0;
+      font-size: 1.05em;
+    }
+
+    .methodology-box {
+      background: var(--fog);
+      border-radius: 8px;
+      padding: 20px 25px;
+      margin: 1em 0;
+      border: 1px solid #e0e0e0;
+    }
+    .methodology-box h4 {
+      margin-top: 0;
+      color: var(--cardinal);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+    }
+
+    .stat-cards {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    .stat-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      flex: 1;
+      min-width: 200px;
+      max-width: 280px;
+      border-top: 3px solid var(--cardinal);
+    }
+    .stat-card .stat-number {
+      font-family: 'Crimson Text', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--cardinal);
+      line-height: 1.2;
+    }
+    .stat-card .stat-label {
+      font-size: 0.85rem;
+      color: var(--cool-grey);
+      margin-top: 0.4rem;
+    }
+
+    .figure-container {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .figure-container img {
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .figure-container .figure-caption {
+      font-size: 0.88rem;
+      color: var(--cool-grey);
+      margin-top: 0.75rem;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .reg-table-wrapper {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    .reg-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    .reg-table thead th {
+      background: var(--fog);
+      font-weight: 600;
+      padding: 8px 10px;
+      border-bottom: 2px solid #ccc;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .reg-table tbody td {
+      padding: 6px 10px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+    .reg-table tbody td:first-child {
+      text-align: left;
+      font-weight: 500;
+    }
+    .reg-table .panel-header td {
+      font-style: italic;
+      font-weight: 600;
+      padding-top: 14px;
+      border-bottom: 1px solid #aaa;
+      text-align: left;
+    }
+    .reg-table .table-note {
+      font-size: 0.78rem;
+      color: #666;
+      text-align: left;
+      padding: 10px 0 0 0;
+      line-height: 1.4;
+    }
+    .reg-table tfoot td {
+      border-top: 2px solid #ccc;
+    }
+
+    .missing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .missing-table thead th {
+      background: var(--fog);
+      font-weight: 600;
+      padding: 8px 12px;
+      border-bottom: 2px solid #ccc;
+      text-align: center;
+    }
+    .missing-table tbody td {
+      padding: 7px 12px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+    .missing-table tbody td:first-child {
+      text-align: left;
+      font-weight: 500;
+    }
+    .missing-table .panel-header td {
+      font-style: italic;
+      font-weight: 600;
+      padding-top: 14px;
+      border-bottom: 1px solid #aaa;
+      text-align: left;
+    }
+
+    .navbar {
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    .navbar-item {
+      font-size: 0.95rem;
+    }
+    .navbar-item.is-active,
+    .navbar-item:hover {
+      color: var(--cardinal) !important;
+    }
+
+    .series-banner {
+      background: var(--fog);
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      font-size: 0.92rem;
+      margin-top: 1rem;
+    }
+    .series-banner strong {
+      color: var(--cardinal);
+    }
+
+    .footnote {
+      font-size: 0.82rem;
+      color: #666;
+      border-top: 1px solid #ddd;
+      padding-top: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .acta-image {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    hr {
+      background-color: #e0e0e0;
+      height: 1px;
+      margin: 0;
+    }
+
+    .section {
+      padding: 3rem 1.5rem;
+    }
+
+    /* Language toggle */
+    html[lang="en"] .es { display: none; }
+    html[lang="es"] .en { display: none; }
+
+    .lang-switch {
+      display: inline-block;
+      cursor: pointer;
+      user-select: none;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--cardinal);
+      letter-spacing: 0.01em;
+      transition: all 0.25s ease;
+      margin-bottom: 1rem;
+      padding: 6px 20px;
+      border: 1.5px solid var(--cardinal);
+      border-radius: 20px;
+      background: rgba(140,21,21,0.04);
+    }
+    .lang-switch:hover {
+      background: rgba(140,21,21,0.10);
+      box-shadow: 0 1px 6px rgba(140,21,21,0.15);
+    }
+    .lang-switch .lang-icon {
+      margin-right: 0.4em;
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 768px) {
+      .stat-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      .stat-card {
+        max-width: 100%;
+      }
+      .shaded-panel {
+        width: 100%;
+        padding: 15px 20px;
+      }
+      .key-finding {
+        max-width: 100%;
+      }
+      .reg-table {
+        font-size: 0.72rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation" style="background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.08); padding-top: 0.25rem; padding-bottom: 0.25rem;">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="#">
+      <img src="images/democracy_action_lab_logo_horz_2025_-_nora_sulots.png" alt="DAL" style="max-height: 32px;" class="is-hidden-tablet">
+      <span class="is-hidden-mobile"><strong style="color:var(--cardinal);">DAL</strong>&nbsp;&mdash;&nbsp;Missing Voters</span>
+    </a>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarMenu" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="#background"><span class="en">Background</span><span class="es">Contexto</span></a>
+      <a class="navbar-item" href="#methods"><span class="en">Methods</span><span class="es">M&eacute;todos</span></a>
+      <a class="navbar-item" href="#results"><span class="en">Results</span><span class="es">Resultados</span></a>
+      <a class="navbar-item" href="#missing-voters"><span class="en">Missing Voters</span><span class="es">Votantes Ausentes</span></a>
+      <a class="navbar-item" href="#conclusion"><span class="en">Conclusion</span><span class="es">Conclusi&oacute;n</span></a>
+    </div>
+    <div class="navbar-end">
+      <a class="navbar-item" href="https://cddrl.fsi.stanford.edu/dal" target="_blank">
+        <img src="images/democracy_action_lab_logo_horz_2025_-_nora_sulots.png" alt="Stanford Democracy Action Lab" style="max-height: 40px;">
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div style="margin-top: 3.5rem;"></div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-body" style="padding-bottom: 2rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <div class="lang-switch" id="langToggle">
+            <span class="en"><span class="lang-icon"><i class="fas fa-globe"></i></span> Clic para Espa&ntilde;ol</span>
+            <span class="es"><span class="lang-icon"><i class="fas fa-globe"></i></span> Click for English</span>
+          </div>
+
+          <h1 class="title is-2 publication-title" style="margin-bottom: 0.5rem;">
+            <span class="en"><span class="gradient-text">Missing Voters:</span> An Analysis of the Effects on Turnout of the Election Administration Delays in the 2026 Peru First Round Presidential Elections</span>
+            <span class="es"><span class="gradient-text">Votantes Ausentes:</span> Un an&aacute;lisis de los efectos sobre la participaci&oacute;n electoral de los retrasos en la administraci&oacute;n electoral en la primera vuelta de las elecciones presidenciales del Per&uacute; de 2026</span>
+          </h1>
+
+          <div class="is-size-5 publication-authors" style="margin-top:1rem;">
+            <span class="author-block">
+              <a target="_blank" href="https://cddrl.fsi.stanford.edu/dal">Democracy Action Lab</a>, CDDRL, Stanford University
+            </span>
+          </div>
+          <div class="is-size-6 publication-authors" style="margin-top: 0.25rem; color: var(--cool-grey);">
+            May 17, 2026
+          </div>
+
+          <div style="margin-top: 1rem;">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://x.com/diazcayeros/status/2056213704547447237" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon"><i class="fa-brands fa-x-twitter"></i></span>
+                  <span>X Thread</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="papers/amicus_curiae.pdf" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon"><i class="fas fa-balance-scale"></i></span>
+                  <span>Amicus Curiae</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="papers/missing_voters_brief_en.pdf" class="external-link button is-normal is-rounded is-dark" id="execSummaryLink" data-en="papers/missing_voters_brief_en.pdf" data-es="papers/resumen_votantes_ausentes.pdf" target="_blank">
+                  <span class="icon"><i class="fas fa-file-alt"></i></span>
+                  <span class="en">Executive Summary</span><span class="es">Resumen Ejecutivo</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="papers/working_paper.pdf" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon"><i class="fas fa-book"></i></span>
+                  <span class="en">Working Paper</span><span class="es">Documento de Trabajo</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="papers/press_release.pdf" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon"><i class="fas fa-newspaper"></i></span>
+                  <span class="en">Press Release</span><span class="es">Nota de Prensa</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Finding TLDR -->
+<section class="section" style="padding-top: 2.5rem; padding-bottom: 1.5rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <div class="key-finding">
+          <p class="en">
+            <strong>Key finding:</strong> The electoral errors, albeit leading to a significant decline in turnout and an impact on vote margins between the second and third-placed candidates, <strong>were not enough to overturn electoral results</strong>. We estimate a reduction of 3 to 5 percentage points in turnout among affected polling stations, translating to approximately 27,000 foregone votes.
+          </p>
+          <p class="es">
+            <strong>Hallazgo principal:</strong> Los errores electorales, aunque condujeron a una disminuci&oacute;n en la participaci&oacute;n electoral y un impacto en los m&aacute;rgenes de votos entre el segundo y tercer candidato, <strong>no fueron suficientes para revertir los resultados electorales</strong>. Estimamos una reducci&oacute;n de 3 a 5 puntos porcentuales en la participaci&oacute;n en las mesas afectadas, lo que se traduce en aproximadamente 27,000 votos perdidos.
+          </p>
+        </div>
+
+
+        <div class="series-banner">
+          <span class="en"><strong>Democracy in Action brief series.</strong> This brief is part of the Democracy in Action series, which seeks to apply cutting-edge social scientific methods to problems of democratic practice. For more information, visit <a href="https://cddrl.fsi.stanford.edu/dal" style="color:var(--cardinal);">cddrl.fsi.stanford.edu/dal</a>.</span>
+          <span class="es"><strong>Serie de informes Democracia en Acci&oacute;n.</strong> Este informe es parte de la serie Democracia en Acci&oacute;n, que busca aplicar los m&eacute;todos de ciencia social m&aacute;s avanzados a problemas de la pr&aacute;ctica democr&aacute;tica. Para m&aacute;s informaci&oacute;n sobre las actividades del Democracy Action Lab, visite <a href="https://cddrl.fsi.stanford.edu/dal" style="color:var(--cardinal);">cddrl.fsi.stanford.edu/dal</a>.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- Background -->
+<section class="section" id="background">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><span class="en">Background</span><span class="es">Contexto</span></h2>
+        <div class="content has-text-justified en">
+          <p>
+            Peruvians went to the polls for the first round of general elections on April 12, 2026. However, major logistical failures delayed the opening of polling stations (<em>mesas</em>) across Lima, in some cases by more than eight hours. Using 29,229 polling-station records (<em>actas</em>) in PDF form to recover opening times, we estimate that at least 817,765 eligible voters were assigned to <em>mesas</em> that opened more than three hours late, 69,139 to <em>mesas</em> that opened more than eight hours late, and 54,362 to <em>mesas</em> that did not open until the following day.<sup>1</sup>
+          </p>
+          <p>
+            Peruvian democracy now finds itself at an inflection point: the margin between second and third place, with only one advancing to the runoff, is approximately 21,209 votes (0.09%), the narrowest since Peru's return to democracy in 2000. The third-place candidate, Rafael L&oacute;pez Aliaga, has contested the results through what we term the <strong>missing voters theory</strong>: the claim that hundreds of thousands of voters were unable to cast ballots because <em>mesas</em> opened late or failed to open altogether. L&oacute;pez Aliaga has called for the annulment of the election and the imprisonment of the head of the National Office of Electoral Processes (ONPE).
+          </p>
+          <p>
+            Although these delays to polling site installations should never have occurred, our analysis suggests the winners of the first round of the presidential election, based on current ballot counts, are still legitimate.
+          </p>
+        </div>
+        <div class="content has-text-justified es">
+          <p>
+            Los peruanos acudieron a las urnas para la primera vuelta de las elecciones generales el 12 de abril de 2026. Sin embargo, importantes fallas log&iacute;sticas retrasaron la apertura de mesas de sufragio en Lima, en algunos casos por m&aacute;s de ocho horas. Utilizando 29,229 PDFs de actas de instalaci&oacute;n para recuperar los horarios de apertura de cada mesa, estimamos que al menos 817,765 electores h&aacute;biles fueron asignados a mesas que abrieron m&aacute;s de tres horas tarde, 69,139 a mesas que abrieron m&aacute;s de ocho horas tarde, y 54,362 a mesas que no abrieron hasta el d&iacute;a siguiente.<sup>1</sup>
+          </p>
+          <p>
+            La democracia peruana se encuentra ahora en un punto de inflexi&oacute;n: el margen entre el segundo y tercer lugar, con solo uno de ellos avanzando a la segunda vuelta, es de aproximadamente 21,209 votos (0.09%), el m&aacute;s estrecho desde el retorno del Per&uacute; a la democracia en el a&ntilde;o 2000. El candidato que ocupa el tercer lugar, Rafael L&oacute;pez Aliaga, ha impugnado los resultados a trav&eacute;s de lo que denominamos la <strong>teor&iacute;a de los votantes ausentes</strong>: la afirmaci&oacute;n que cientos de miles de potenciales votantes acudieron a sus locales de votaci&oacute;n asignados el 12 de abril, esperaron durante horas mientras las mesas no se instalaban a tiempo, y finalmente se retiraron sin votar. L&oacute;pez Aliaga ha solicitado la nulidad de la elecci&oacute;n y el encarcelamiento del jefe de la Oficina Nacional de Procesos Electorales (ONPE).
+          </p>
+          <p>
+            Aunque estos retrasos en la instalaci&oacute;n de mesas de sufragio nunca debieron ocurrir, nuestro an&aacute;lisis sugiere que los ganadores de la primera vuelta de la elecci&oacute;n presidencial, basados en los conteos actuales de votos, siguen siendo leg&iacute;timos.
+          </p>
+        </div>
+        <div class="footnote en">
+          <sup>1</sup> See accompanying technical working paper for full details: <em>Missing Voters? Evidence from Polling Station Delays in the 2026 Peruvian Elections</em>.
+        </div>
+        <div class="footnote es">
+          <sup>1</sup> V&eacute;ase el documento de trabajo t&eacute;cnico que acompa&ntilde;a este informe para detalles completos del an&aacute;lisis: <em>Missing Voters? Evidence from Polling Station Delays in the 2026 Peruvian Elections</em>.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- Methods -->
+<section class="section" id="methods">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><span class="en">Methods</span><span class="es">M&eacute;todos</span></h2>
+        <div class="content has-text-justified en">
+          <p>
+            Estimating the effect of delays in opening polling stations on turnout is not straightforward because stations that open late are not necessarily random events. Our core statistical analysis leverages two complementary sources of variation to better approximate &ldquo;apples-to-apples&rdquo; comparisons: comparing neighboring polling tables within the same district, and then comparing each voting site against itself across four consecutive elections (2011 to 2026).
+          </p>
+          <p>
+            We define a polling station as &ldquo;late&rdquo; if a <em>mesa</em> opened more than three hours after its scheduled opening time of 7am, while also varying this threshold hourly until 2pm. In the previous three elections, almost no <em>mesa</em> opened more than three hours late, making it a reasonable cutoff for lateness. We additionally rely on the JNE&rsquo;s official report identifying <em>mesas</em> confirmed to have opened after 2pm as a &ldquo;ground truth&rdquo; measure of delayed installations and separately examine <em>mesas</em> that opened the following day.
+          </p>
+        </div>
+        <div class="content has-text-justified es">
+          <p>
+            Estimar el efecto de los retrasos en la apertura de mesas de sufragio sobre la participaci&oacute;n electoral no es sencillo porque las mesas que abren tarde no son necesariamente eventos aleatorios. Nuestro an&aacute;lisis estad&iacute;stico aprovecha dos fuentes complementarias de variaci&oacute;n para realizar comparaciones tipo &ldquo;apples-to-apples&rdquo;: comparamos mesas aleda&ntilde;as dentro del mismo distrito, y luego comparamos cada local de votaci&oacute;n consigo mismo a lo largo de cuatro elecciones consecutivas (2011 a 2026).
+          </p>
+          <p>
+            Definimos una mesa como de apertura tard&iacute;a si se instal&oacute; m&aacute;s de tres horas despu&eacute;s de la hora de apertura programada (7am), y variamos este umbral hora por hora hasta las 2pm. En las tres elecciones anteriores, casi ninguna mesa abri&oacute; con m&aacute;s de tres horas de retraso, lo que lo convierte en un buen punto de corte para identificar retrasos extraordinarios. Adicionalmente, utilizamos el informe oficial del Jurado Nacional de Elecciones (JNE) que identifica las mesas que abrieron despu&eacute;s de las 2pm, utiliz&aacute;ndolo como una medida de referencia de instalaciones tard&iacute;as. Tambi&eacute;n examinamos por separado las mesas que abrieron al d&iacute;a siguiente.
+          </p>
+        </div>
+
+        <div class="columns is-vcentered" style="margin-top: 1.5rem;">
+          <div class="column is-6">
+            <div class="methodology-box">
+              <h4><strong><span class="en">The Dataset</span><span class="es">Los Datos</span></strong></h4>
+              <p class="en" style="font-size: 0.92rem;">Because no official 2026 election database was available during our analysis, we construct our own dataset by scraping the near-universe of available polling-station records (<em>actas</em>) across <em>mesas</em> in Lima. To compare turnout over time, we additionally collect voting site-level electoral data from presidential elections since 2011.</p>
+              <p class="es" style="font-size: 0.92rem;">Debido a que no hab&iacute;a una base de datos electoral oficial de 2026 disponible durante nuestro an&aacute;lisis, construimos nuestra propia base de datos extrayendo el universo casi completo de &ldquo;actas de instalaci&oacute;n&rdquo; disponibles en todas las mesas de Lima. Para comparar la participaci&oacute;n electoral a lo largo del tiempo, tambi&eacute;n recopilamos datos electorales a nivel de local de votaci&oacute;n de las elecciones presidenciales desde el 2011.</p>
+            </div>
+            <div class="methodology-box">
+              <h4><strong><span class="en">Methodology</span><span class="es">Metodolog&iacute;a</span></strong></h4>
+              <p class="en" style="font-size: 0.92rem;">We processed over 87,000 scanned <em>actas</em> using a state-of-the-art multimodal large language model (Gemini 2.5 Pro via Google Vertex) to recover polling station opening times from both digital and handwritten records, which were then manually verified. We additionally incorporated the JNE's April 16 report identifying <em>mesas</em> confirmed to have opened after 2pm.</p>
+              <p class="es" style="font-size: 0.92rem;">Procesamos m&aacute;s de 87,000 actas escaneadas utilizando un modelo de lenguaje multimodal de &uacute;ltima generaci&oacute;n (Gemini 2.5 Pro v&iacute;a Google Vertex) para recuperar los horarios de apertura de mesas tanto de registros digitales como manuscritos, que luego fueron verificados manualmente. Tambi&eacute;n incorporamos el informe del JNE del 16 de abril que identifica las mesas que abrieron despu&eacute;s de las 2pm.</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="figure-container">
+              <img src="images/hard_acta_scan.png" alt="Example of a scanned acta" class="acta-image" style="max-width: 125%; width: 125%;" />
+              <div class="figure-caption"><span class="en"><strong>Figure 1.</strong> Example of a scanned <em>acta</em> (polling station record) used to recover opening times.</span><span class="es"><strong>Figura 1.</strong> Ejemplo de acta escaneada.</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- Results -->
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><span class="en">Results</span><span class="es">Resultados</span></h2>
+        <div class="content has-text-justified en">
+          <p>
+            Our core result suggests that those <em>mesas</em> that opened after 10am on Sunday experienced a decline in turnout by 3 percentage points. Among those <em>mesas</em> where we can confirm an opening time after 2pm, this effect increases to a 5.3 percentage point decline in turnout. Moreover, for those <em>mesas</em> that opened a full day late on Monday, we estimate a 5 percentage point decline in turnout.
+          </p>
+        </div>
+        <div class="content has-text-justified es">
+          <p>
+            Como se muestra en la Tabla 1, nuestro resultado principal sugiere que aquellas mesas que abrieron despu&eacute;s de las 10 a.m. el domingo experimentaron una disminuci&oacute;n en la participaci&oacute;n electoral de 3 puntos porcentuales. Entre aquellas mesas donde podemos confirmar un horario de apertura despu&eacute;s de las 2pm, este efecto aumenta a una disminuci&oacute;n de 5.3 puntos porcentuales en la participaci&oacute;n electoral. Adem&aacute;s, para aquellas mesas que abrieron un d&iacute;a tarde (el lunes), estimamos una disminuci&oacute;n de 5 puntos porcentuales en la participaci&oacute;n electoral.
+          </p>
+        </div>
+
+        <!-- Table 1 -->
+        <div class="shaded-panel" style="background: white; border: 1px solid #e0e0e0; width: 100%; margin-bottom: 2rem;">
+          <h4 style="font-family: 'Crimson Text', serif; margin-bottom: 1rem; color: var(--cardinal);">Table 1: Effect of Late Opening on Turnout</h4>
+          <div class="reg-table-wrapper">
+            <table class="reg-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>(1)</th><th>(2)</th><th>(3)</th><th>(4)</th><th>(5)</th><th>(6)</th><th>(7)</th><th>(8)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="panel-header"><td colspan="9"><em>Panel A: OLS</em> &mdash; Dependent variable is Turnout Rate (<em>Mesa</em>-Level)</td></tr>
+                <tr>
+                  <td>Late Opening</td>
+                  <td>&minus;0.030***</td><td>&minus;0.029***</td><td>&minus;0.016**</td><td>&minus;0.023**</td>
+                  <td>&minus;0.034***</td><td>&minus;0.044***</td><td>&minus;0.053*</td><td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.007)</td><td>(0.008)</td><td>(0.008)</td><td>(0.009)</td>
+                  <td>(0.011)</td><td>(0.016)</td><td>(0.030)</td><td></td>
+                </tr>
+                <tr>
+                  <td>ln(Opening Hour)</td>
+                  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>&minus;0.076***</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>(0.012)</td>
+                </tr>
+                <tr>
+                  <td>Observations</td>
+                  <td>28,796</td><td>28,796</td><td>28,796</td><td>28,796</td>
+                  <td>28,796</td><td>28,796</td><td>26,217</td><td>28,661</td>
+                </tr>
+
+                <tr class="panel-header"><td colspan="9"><em>Panel B: Fractional Logit</em></td></tr>
+                <tr>
+                  <td>Late Opening</td>
+                  <td>&minus;0.029***</td><td>&minus;0.028***</td><td>&minus;0.016**</td><td>&minus;0.022***</td>
+                  <td>&minus;0.032***</td><td>&minus;0.041***</td><td>&minus;0.052*</td><td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.006)</td><td>(0.007)</td><td>(0.007)</td><td>(0.009)</td>
+                  <td>(0.010)</td><td>(0.014)</td><td>(0.027)</td><td></td>
+                </tr>
+                <tr>
+                  <td>ln(Opening Hour)</td>
+                  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>&minus;0.074***</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>(0.012)</td>
+                </tr>
+                <tr>
+                  <td>Observations</td>
+                  <td>28,800</td><td>28,800</td><td>28,800</td><td>28,800</td>
+                  <td>28,800</td><td>28,800</td><td>26,221</td><td>28,665</td>
+                </tr>
+
+                <tr style="border-top:1px solid #aaa;">
+                  <td><em>Distrito</em> Fixed Effects</td>
+                  <td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td>
+                </tr>
+                <tr>
+                  <td>Treated Sample</td>
+                  <td>10am+</td><td>11am+</td><td>12pm+</td><td>1pm+</td><td>2pm+</td><td>JNE</td><td>Monday</td><td>Non-JNE</td>
+                </tr>
+                <tr>
+                  <td>Treated <em>Mesas</em></td>
+                  <td>2,750</td><td>1,572</td><td>657</td><td>423</td><td>233</td><td>135</td><td>171</td><td>&mdash;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note" style="font-size: 0.78rem; color: #666; margin-top: 10px; line-height: 1.4;">
+            <em>Note:</em> ***&thinsp;p&nbsp;&lt;&nbsp;0.01, **&thinsp;p&nbsp;&lt;&nbsp;0.05, *&thinsp;p&nbsp;&lt;&nbsp;0.10. Robust standard errors clustered by voting site in parentheses. Treated sample refers to the definition of the treatment variable. JNE refers to <em>mesas</em> observed opening after 2pm by the Jurado Nacional de Elecciones report. Panel A reports OLS estimates. Panel B reports average marginal effects from fractional logit models. Column 7 only uses <em>mesas</em> that opened before 10am on Sunday as the control group. Column 8 drops all <em>mesas</em> flagged in the JNE report given installation times cannot be confirmed before 2pm.
+          </p>
+        </div>
+
+        <!-- Figures 2 and 3 side-by-side -->
+        <div class="columns is-variable is-6" style="margin-top: 2rem;">
+          <div class="column is-6">
+            <div class="figure-container">
+              <img src="images/hours_binned_effects.png" alt="Binned estimates of mesa opening hour on turnout" />
+              <div class="figure-caption"><span class="en"><strong>Figure 2.</strong> Binned estimates of <em>mesa</em> opening hour on turnout. Effects are relative to a &ldquo;base&rdquo; opening time of 7:00&ndash;7:59am.</span><span class="es"><strong>Figura 2.</strong> Estimaciones agrupadas del efecto de la hora de apertura de mesa sobre la participaci&oacute;n. Estos efectos estimados son relativos a un horario de apertura &ldquo;base&rdquo; de 7:00&ndash;7:59am.</span></div>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="figure-container">
+              <img src="images/event_study_lima_10am.png" alt="Event study results for 10am+ openers" />
+              <div class="figure-caption"><span class="en"><strong>Figure 3.</strong> Event study results for 10am+ openers. Analysis is at the voting site level.</span><span class="es"><strong>Figura 3.</strong> Resultados del estudio de eventos para aperturas despu&eacute;s de las 10am. El an&aacute;lisis es a nivel de local de votaci&oacute;n.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content has-text-justified en" style="margin-top: 1rem;">
+          <p>
+            When we &ldquo;bin&rdquo; the installation times of <em>mesas</em> into hourly intervals, we see an increasing pattern of turnout decline, as shown in Figure 2. However, this is not monotonic: there is a clear rebound for those <em>mesas</em> that opened around noon, as lunchtime gave voters a chance to return to the polls, although turnout continues to decline thereafter.
+          </p>
+          <p>
+            To show the impact of the delays relative to historical turnout rates, Figure 3 plots the results from an &ldquo;event study,&rdquo; focusing on those voting sites that comprise any <em>mesa</em> that opened after 10am on Sunday. There is an evident drop in turnout for the delayed <em>mesas</em> of 2026, with no differential trends in turnout over the last three prior elections.
+          </p>
+        </div>
+        <div class="content has-text-justified es" style="margin-top: 1rem;">
+          <p>
+            Cuando agrupamos los horarios de instalaci&oacute;n de las mesas en intervalos de una hora, tambi&eacute;n vemos un patr&oacute;n creciente en la disminuci&oacute;n de la participaci&oacute;n electoral, como se muestra en la Figura 2. Sin embargo, este efecto no es mon&oacute;tono: existe un repunte claro en las mesas que abrieron alrededor del mediod&iacute;a, ya que la hora del almuerzo dio a los votantes la oportunidad de regresar a las urnas, aunque la participaci&oacute;n contin&uacute;a disminuyendo en las mesas que abrieron despu&eacute;s de la 1 p.m.
+          </p>
+          <p>
+            Para mostrar el impacto de los retrasos en relaci&oacute;n con las tasas hist&oacute;ricas de participaci&oacute;n, la Figura 3 presenta los resultados de un &ldquo;estudio de eventos&rdquo; centr&aacute;ndose en los locales de votaci&oacute;n que contienen mesas que abrieron despu&eacute;s de las 10am del domingo. Se observa una evidente ca&iacute;da en la participaci&oacute;n en las mesas que abrieron tarde en 2026, sin haber tendencias distintas de participaci&oacute;n a lo largo de las tres elecciones anteriores.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- Estimating the Missing Voters -->
+<section class="section" id="missing-voters">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><span class="en">Estimating the &ldquo;Missing Voters&rdquo;</span><span class="es">Estimando los &ldquo;Votantes Ausentes&rdquo;</span></h2>
+        <div class="content has-text-justified en">
+          <p>
+            The key question emerging from the analysis is: exactly how many foregone votes resulted from the installation delays at voting stations? Using our estimates of turnout loss, we perform back-of-the-envelope calculations to quantify these &ldquo;missing voters.&rdquo; In Table 2, we estimate an overall loss of votes approximating 27,000 voters. This estimate combines the effects from voting stations opening after 10am on Sunday, in addition to the loss in turnout for Monday-openers.
+          </p>
+        </div>
+        <div class="content has-text-justified es">
+          <p>
+            La pregunta clave que surge del an&aacute;lisis es: &iquest;exactamente cu&aacute;ntos votos no emitidos resultaron de los retrasos en la instalaci&oacute;n de mesas de votaci&oacute;n? Utilizando nuestras estimaciones en la p&eacute;rdida de participaci&oacute;n electoral, realizamos c&aacute;lculos aproximados que cuantifican los &ldquo;votantes ausentes.&rdquo; En la Tabla 2, estimamos una p&eacute;rdida total de votos que se aproxima a 27,000 votantes. Esta estimaci&oacute;n combina los efectos de las mesas de votaci&oacute;n que abrieron despu&eacute;s de las 10am el domingo y los de las mesas que abrieron el lunes.
+          </p>
+        </div>
+
+        <!-- Table 2 -->
+        <div class="shaded-panel" style="background: white; border: 1px solid #e0e0e0; width: 100%; margin-top: 1rem; margin-bottom: 2rem;">
+          <h4 style="font-family: 'Crimson Text', serif; margin-bottom: 1rem; color: var(--cardinal);">Table 2: Estimates of Missing Voters from Delayed Openings</h4>
+          <div class="reg-table-wrapper">
+            <table class="missing-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>(1)<br><span style="font-weight:400; font-size:0.8rem;">\(\hat{\beta}\)</span></th>
+                  <th>(2)<br><span style="font-weight:400; font-size:0.8rem;">Exposure-Weighted<br>Registered Voters</span></th>
+                  <th>(3)<br><span style="font-weight:400; font-size:0.8rem;">\(\Delta\widehat{\text{Votes}}\)</span></th>
+                  <th>(4)<br><span style="font-weight:400; font-size:0.8rem;">95% CI for \(\Delta\widehat{\text{Votes}}\)</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="panel-header"><td colspan="5"><em>Panel A: OLS (Dummy)</em></td></tr>
+                <tr>
+                  <td>10am+</td><td>&minus;0.030</td><td>817,765</td><td>&minus;24,161</td><td>[&minus;34,609, &minus;13,714]</td>
+                </tr>
+                <tr>
+                  <td>2pm+ (JNE)</td><td>&minus;0.044</td><td>40,010</td><td>&minus;1,746</td><td>[&minus;2,999, &minus;493]</td>
+                </tr>
+                <tr>
+                  <td>Voted Monday</td><td>&minus;0.053</td><td>50,776</td><td>&minus;2,710</td><td>[&minus;5,689, 268]</td>
+                </tr>
+                <tr style="font-weight:600;">
+                  <td>10am+ and Voted Monday</td><td>&mdash;</td><td>868,541</td><td>&minus;26,872</td><td>[&minus;39,506, &minus;16,774]</td>
+                </tr>
+
+                <tr class="panel-header"><td colspan="5"><em>Panel B: TWFE (Fraction)</em></td></tr>
+                <tr>
+                  <td>10am+</td><td>&minus;0.030</td><td>818,174</td><td>&minus;24,329</td><td>[&minus;37,724, &minus;10,934]</td>
+                </tr>
+                <tr>
+                  <td>2pm+ (JNE)</td><td>&minus;0.065</td><td>40,608</td><td>&minus;2,630</td><td>[&minus;3,964, &minus;1,297]</td>
+                </tr>
+                <tr>
+                  <td>Voted Monday</td><td>&minus;0.069</td><td>51,376</td><td>&minus;3,566</td><td>[&minus;5,591, &minus;1,541]</td>
+                </tr>
+                <tr style="font-weight:600;">
+                  <td>10am+ and Voted Monday</td><td>&mdash;</td><td>869,550</td><td>&minus;27,895</td><td>[&minus;41,929, &minus;12,855]</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size: 0.78rem; color: #666; margin-top: 10px; line-height: 1.4;">
+            <em>Note:</em> Exposure-weighted registered voters refers to total registered voters among delayed polling tables or voting sites. Panel A reports OLS estimates. Panel B reports TWFE estimates using the continuous fraction of <em>mesas</em> that opened late within a site (Voted Monday is included as it is effectively a 100% fraction). Combined 10am+ and Voted Monday sum the predicted foregone votes from the two constituent estimates, with uncertainty computed using a site-cluster bootstrap.
+          </p>
+        </div>
+
+        <div class="content has-text-justified en">
+          <p>
+            We then estimate how these foregone votes would have been distributed between the second- and third-place candidates. Because the observed L&oacute;pez Aliaga&ndash;S&aacute;nchez margin was itself affected by the delays, we construct a <em>counterfactual</em> using vote shares from untreated <em>mesas</em> within the same district, or the nearest untreated district when necessary. In Figure 4, combining turnout losses from both 10am+ Sunday-openers and Monday-openers, we estimate that L&oacute;pez Aliaga lost approximately 5,691 votes relative to S&aacute;nchez &mdash; comfortably below the roughly 21,209-vote gap separating the candidates.
+          </p>
+        </div>
+        <div class="content has-text-justified es">
+          <p>
+            Luego estimamos c&oacute;mo estos votos no emitidos se habr&iacute;an distribuido entre el segundo y tercer candidato. Debido a que el margen observado entre L&oacute;pez Aliaga y S&aacute;nchez se vio afectado por los retrasos, construimos un <em>contrafactual</em> utilizando las proporciones de votos de mesas sin retrasos dentro del mismo distrito, o del distrito sin retrasos m&aacute;s cercano cuando resulta necesario. Combinando las p&eacute;rdidas en la participaci&oacute;n electoral tanto de las aperturas post-10am del domingo como de las aperturas del lunes, estimamos que L&oacute;pez Aliaga perdi&oacute; aproximadamente 5,691 votos en relaci&oacute;n a S&aacute;nchez &mdash; muy por debajo de la brecha de 21,209 votos que hoy separa a los dos candidatos.
+          </p>
+        </div>
+
+        <!-- Figure 4 -->
+        <div class="figure-container" style="max-width: 700px; margin: 2rem auto;">
+          <img src="images/electoral_margins.png" alt="Estimated potential change in electoral margin from delayed openings" />
+          <div class="figure-caption"><span class="en"><strong>Figure 4.</strong> Estimated potential change in electoral margin from delayed openings. Points show point estimates; horizontal lines represent 95% confidence intervals using site-cluster bootstrapping. Negative values favor S&aacute;nchez (reduced margin for L&oacute;pez Aliaga).</span><span class="es"><strong>Figura 4.</strong> Cambio potencial estimado en el margen electoral por aperturas tard&iacute;as.</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- Conclusion -->
+<section class="section" id="conclusion">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><span class="en">Conclusion</span><span class="es">Conclusi&oacute;n</span></h2>
+        <div class="content has-text-justified en">
+          <p>
+            By tracking the first round of the Peruvian 2026 presidential election in real time, and using state-of-the-art LLMs combined with techniques in causal inference, our analysis reveals a strong decline in turnout, albeit not large enough to overturn electoral results.
+          </p>
+        </div>
+        <div class="content has-text-justified es">
+          <p>
+            Mediante un seguimiento en tiempo real de la primera vuelta de las elecciones presidenciales del Per&uacute; de 2026, combinando modelos de lenguaje de &uacute;ltima generaci&oacute;n con t&eacute;cnicas de inferencia causal, nuestro an&aacute;lisis revela una marcada disminuci&oacute;n de la participaci&oacute;n electoral en las mesas de Lima afectadas por retrasos en la entrega de material electoral. Sin embargo, el impacto no es suficiente para sostener que la composici&oacute;n de la segunda vuelta haya sido alterado. Estimamos que, de no haber habido aperturas tard&iacute;as extraordinarias, la diferencia final entre los candidatos hubiera sido entre 15,510 y 16,210 a favor de Roberto S&aacute;nchez.
+          </p>
+        </div>
+
+        <div style="margin-top: 2rem; padding: 1rem 0; border-top: 1px solid #e0e0e0; font-size: 0.9rem; color: var(--cool-grey);">
+          <span class="en"><strong>Acknowledgments:</strong> This brief was prepared collaboratively by the Democracy Action Lab team, with special contributions by Christopher Dann and Marcelo Pe&ntilde;a.</span>
+          <span class="es"><strong>Agradecimientos:</strong> Este informe fue preparado colaborativamente por el equipo del Democracy Action Lab, con contribuciones especiales de Christopher Dann y Marcelo Pe&ntilde;a.</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" style="padding: 2rem 1.5rem; background: var(--fog);">
+  <div class="container is-max-desktop">
+    <div class="content has-text-centered" style="font-size: 0.85rem; color: var(--cool-grey);">
+      <p>
+        &copy; 2026 Democracy Action Lab &mdash; Center on Democracy, Development and the Rule of Law, Stanford University.
+      </p>
+      <p>
+        <a href="https://cddrl.fsi.stanford.edu/dal" style="color: var(--cardinal);">cddrl.fsi.stanford.edu/dal</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+  if ($navbarBurgers.length > 0) {
+    $navbarBurgers.forEach(el => {
+      el.addEventListener('click', () => {
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+      });
+    });
+  }
+
+  const toggle = document.getElementById('langToggle');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('lang') || 'en';
+      const lang = current === 'en' ? 'es' : 'en';
+      document.documentElement.setAttribute('lang', lang);
+      const execLink = document.getElementById('execSummaryLink');
+      if (execLink) execLink.href = execLink.dataset[lang] || '#';
+    });
+  }
+});
+</script>
+
+</body>
+</html>
